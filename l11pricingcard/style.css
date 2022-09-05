@@ -1,0 +1,185 @@
+:root {
+	--colr1: linear-gradient(
+		to right,
+     steelblue,
+     skyblue
+	);
+
+	--colr2: linear-gradient(
+		to top,
+		steelblue,
+         skyblue
+	);
+
+	--colr3: linear-gradient(
+		to left,
+      steelblue,
+      skyblue
+	);
+}
+
+
+body{
+	height: 100vh;
+	display: grid;
+	place-items: center;
+}
+
+.title{
+	margin-bottom: 50px;
+}
+
+.title h3{
+	font-size: 40px;
+	font-weight: 300;
+	text-align: center;
+}
+
+.toggle-container{
+	display: flex;
+	justify-content: center;
+}
+
+.toggle-container > *{            /*parent ka nay child ko call dar*/
+	margin: 0 3px;
+}
+
+.toggle-checkbox{                    /*visibility ka a nout mar a loke loke dal*/
+	visibility: hidden;
+}
+
+.toggle-checkbox:checked + .toggle-label{     /*+ sign ka adjacement sibling selector*/  /*action you ma pyint chin lot*/
+  background: steelblue; 
+}
+
+.toggle-label{
+	width: 40px;
+	height: 20px;
+	background:#bbb;
+	border-radius: 50px;
+	margin: 0 15px;
+	cursor: pointer;
+
+	position: relative;
+}
+
+.toggle-label .ball{
+ width: 15px;
+ height: 15px;
+ border-radius: 50%;
+ background: #f4f4f4;
+
+ position: absolute;
+ left: 2px;
+ top:2.5px;
+
+ animation: offain .3s linear;
+}
+
+.toggle-checkbox:checked + .toggle-label .ball{
+  animation: onain .3s linear forwards;
+}
+
+@keyframes onain{
+	0%{
+     transform: translate(0px) scale(1);
+	}
+	50%{
+     transform: translate(10px) scale(1.2);
+	}
+	100%{
+      transform: translate(18px) scale(1);
+	}
+}
+
+@keyframes offain{
+	0%{
+     transform: translate(18px) scale(1);
+	}
+	50%{
+     transform: translate(10px) scale(1.2);
+	}
+	100%{
+      transform: translate(0px) scale(1);
+	}
+}
+
+.price-container{
+	display: flex;
+}
+
+.price-box{
+	width: 400px;
+	text-align: center;
+	box-shadow: 0px 3px 10px rgba(0, 0, 0, .3);
+	padding-bottom: 30px;
+	background: #fff;
+}
+
+.price-box p{
+	font-size: 20px;
+	background: steelblue;
+	padding: 20px 0;
+}
+
+.price-box h3 span{
+	font-size: 20px;
+
+	vertical-align: middle;
+}
+
+.price-box h3 span:nth-of-type(2){
+	font-size: 35px;
+}
+
+.price-list .list-group{
+	list-style: none;
+	padding: 0;
+	margin-bottom:50px;
+}
+
+.price-list .list-group li{
+	font-size: 16px;
+	padding: 12px 0;
+	border-bottom: 1px solid #eee;
+}
+
+.price-list .list-group li:first-child{
+	border-top: 1px solid #eee;
+}
+
+.price-list .btn{
+	text-decoration: none;
+	/*background: green;*/
+	color: #fff;
+	padding: 15px 35px;
+	font-size: 15px;
+	border-radius: 5px;
+
+	transition: all .3s ease-in;
+}
+
+.price-list .btn:hover{
+	font-size: 20px;
+}
+
+.box{
+color: #fff;
+padding:20px 0 ;
+}
+
+.box1,.btn1{
+ background: var(--colr1);
+}
+
+.box2,.btn2{
+ background: var(--colr2);
+}
+
+.box3,.btn3{
+ background: var(--colr3);
+}
+
+.price-box:nth-of-type(2){
+	transform: scale(1.1);
+}
